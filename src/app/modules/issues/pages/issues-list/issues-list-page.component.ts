@@ -4,6 +4,7 @@ import { IssuesService } from '../../services/issues.service';
 import { JsonPipe } from '@angular/common';
 import { LabelsSelectorComponent } from "../../components/labels-selector/labels-selector.component";
 import { IssueItemComponent } from "../../components/issue-item/issue-item.component";
+import { State } from '../../interfaces';
 
 @Component({
   selector: 'app-issues-list-page',
@@ -21,6 +22,16 @@ export default class IssuesListPageComponent {
 
   get issuesQuery() {
     return this.issuesService.issuesQuery;
+  }
+
+  onChangeState(newState: string){
+    const state =
+    {
+      'all': State.All,
+      'open': State.Open,
+      'closed': State.Closed
+    }[newState] ?? State.All
+    this.issuesService.showIssuesByState(state)
   }
 
 }
