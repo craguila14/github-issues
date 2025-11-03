@@ -2,8 +2,11 @@ import { QueryClient } from "@tanstack/angular-query-experimental";
 import { getIssueCommentsByNumber } from "./get-issue-comment-by-number.action";
 import { environment } from "src/environments/environment.development";
 
-const BASE_URL = environment.baseUrl
-const GITHUB_TOKEN = environment.gitHubToken
+// const BASE_URL = environment.baseUrl
+// const GITHUB_TOKEN = environment.gitHubToken
+
+const {BASE_URL, GITHUB_TOKEN} = process.env
+
 
 describe('getIssuesComments (TanStack Query style)', () => {
 

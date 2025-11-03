@@ -3,8 +3,11 @@ import { sleep } from "@helpers/sleep";
 import { environment } from "src/environments/environment.development";
 import { GitHubIssue, State } from "../interfaces";
 
-const BASE_URL = environment.baseUrl;
-const GITHUB_TOKEN = environment.gitHubToken
+// const BASE_URL = environment.baseUrl;
+// const GITHUB_TOKEN = environment.gitHubToken
+
+const {BASE_URL, GITHUB_TOKEN} = process.env
+
 
 
 export const getIssues = async (
