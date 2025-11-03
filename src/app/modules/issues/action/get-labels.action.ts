@@ -3,11 +3,8 @@ import { sleep } from "@helpers/sleep";
 import { GitHubLabel } from "../interfaces/github-labels.interfaces";
 import { environment } from "src/environments/environment.development";
 
-// const BASE_URL = environment.baseUrl;
-// const GITHUB_TOKEN = environment.gitHubToken
-
-const {BASE_URL, GITHUB_TOKEN} = process.env
-
+const BASE_URL = environment.baseUrl;
+const GITHUB_TOKEN = environment.gitHubToken
 
 
 export const getLabels = async (): Promise<GitHubLabel[]> => {

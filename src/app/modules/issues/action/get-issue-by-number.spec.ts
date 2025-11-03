@@ -61,12 +61,9 @@ import { GitHubIssue } from "../interfaces";
 
 describe('getIssueByNumner (TanStack Query style)', () => {
 
-  const {BASE_URL, GITHUB_TOKEN} = process.env
-
-
-  // const BASE_URL = environment.baseUrl;
+  const BASE_URL = environment.baseUrl;
   const issueNumber = '123'
-  // const GITHUB_TOKEN = environment.gitHubToken
+  const GITHUB_TOKEN = environment.gitHubToken
 
   const mockIssue = {
   id: 123,

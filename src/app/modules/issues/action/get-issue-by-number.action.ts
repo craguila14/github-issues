@@ -3,10 +3,9 @@ import { sleep } from "@helpers/sleep";
 import { environment } from "src/environments/environment.development";
 import { GitHubIssue } from "../interfaces";
 
-const {BASE_URL, GITHUB_TOKEN} = process.env
 
-// const BASE_URL = environment.baseUrl;
-// const GITHUB_TOKEN = environment.gitHubToken
+const BASE_URL = environment.baseUrl;
+const GITHUB_TOKEN = environment.gitHubToken
 
 
 export const getIssueByNumber = async (issueNumber: string): Promise<GitHubIssue> => {
