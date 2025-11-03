@@ -1,7 +1,7 @@
      // set-env.ts
      require('dotenv').config();
      const fs = require('fs');
-     const path = require('path');  // Agrega esta importación para manejar rutas
+     const path = require('path');
 
      const targetPath = './src/environments/environment.development.ts';
 
@@ -19,4 +19,4 @@
      `;
 
      fs.writeFileSync(targetPath, envConfigFile);
-     
+
