@@ -2,7 +2,7 @@
 require('dotenv').config();
 const fs = require('fs');
 
-const targetPath = './src/environments/environment.develpment.ts';
+const targetPath = './src/environments/environment.development.ts';
 
 const envConfigFile =
 `export const environment = {
