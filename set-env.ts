@@ -1,16 +1,22 @@
-// set-env.ts
-require('dotenv').config();
-const fs = require('fs');
+     // set-env.ts
+     require('dotenv').config();
+     const fs = require('fs');
+     const path = require('path');  // Agrega esta importación para manejar rutas
 
-const targetPath = './src/environments/environment.development.ts';
+     const targetPath = './src/environments/environment.development.ts';
 
-const envConfigFile =
-`export const environment = {
-  production: ${process.env['CONTEXT'] === 'production' ? 'true' : 'false'},
-  baseUrl: '${process.env['NG_APP_BASE_URL'] ?? ''}',
-  gitHubToken: '${process.env['NG_APP_GITHUB_TOKEN'] ?? ''}'
-};
-`;
+     // Crear el directorio si no existe (esto evita ENOENT)
+     const targetDir = path.dirname(targetPath);
+     if (!fs.existsSync(targetDir)) {
+       fs.mkdirSync(targetDir, { recursive: true });
+     }
 
-fs.writeFileSync(targetPath, envConfigFile);
+     const envConfigFile = `export const environment = {
+       production: ${process.env['CONTEXT'] === 'production' ? 'true' : 'false'},
+       baseUrl: '${process.env['NG_APP_BASE_URL'] ?? ''}',
+       gitHubToken: '${process.env['NG_APP_GITHUB_TOKEN'] ?? ''}'
+     };
+     `;
 
+     fs.writeFileSync(targetPath, envConfigFile);
+     
