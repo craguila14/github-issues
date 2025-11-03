@@ -30,6 +30,7 @@ export const getIssues = async (
       }
     });
 
+
     if(!resp.ok) throw "Can't load issues";
 
     const issues: GitHubIssue[] = await resp.json()
